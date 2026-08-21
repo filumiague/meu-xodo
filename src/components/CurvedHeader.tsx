@@ -6,9 +6,10 @@ interface CurvedHeaderProps {
   subtitulo?: string
   children?: ReactNode
   mostrarLogo?: boolean
+  fotoUrl?: string | null
 }
 
-export function CurvedHeader({ titulo, subtitulo, children, mostrarLogo }: CurvedHeaderProps) {
+export function CurvedHeader({ titulo, subtitulo, children, mostrarLogo, fotoUrl }: CurvedHeaderProps) {
   const { escala, aumentar, diminuir } = useAcessibilidade()
 
   return (
@@ -21,10 +22,7 @@ export function CurvedHeader({ titulo, subtitulo, children, mostrarLogo }: Curve
       <div className="relative z-10">
         <div className="flex items-center justify-between mb-3">
           {mostrarLogo ? (
-            <div className="flex items-center gap-2.5">
-              <img src="/logo-meu-xodo.png" alt="" className="w-8 h-8" />
-              <span className="font-heading font-bold text-lg">Meu Xodó</span>
-            </div>
+            <img src="/logo-meu-xodo.png" alt="Meu Xodó" className="h-11 w-auto" />
           ) : (
             <span className="font-heading font-bold text-xl">{titulo}</span>
           )}
@@ -49,10 +47,15 @@ export function CurvedHeader({ titulo, subtitulo, children, mostrarLogo }: Curve
         </div>
 
         {mostrarLogo && (
-          <>
-            {subtitulo && <p className="font-heading font-semibold text-sm opacity-90 mb-1">{subtitulo}</p>}
-            <p className="font-heading font-bold text-3xl">{titulo}</p>
-          </>
+          <div className="flex items-center gap-3">
+            {fotoUrl && (
+              <img src={fotoUrl} alt="" className="w-14 h-14 rounded-full object-cover border-2 border-white/40" />
+            )}
+            <div>
+              {subtitulo && <p className="font-heading font-semibold text-sm opacity-90 mb-1">{subtitulo}</p>}
+              <p className="font-heading font-bold text-3xl">{titulo}</p>
+            </div>
+          </div>
         )}
 
         {children}

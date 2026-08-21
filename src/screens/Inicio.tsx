@@ -1,17 +1,25 @@
+import { useEffect, useState } from 'react'
 import { CurvedHeader } from '../components/CurvedHeader'
 import { useAuth } from '../hooks/useAuth'
 import { useEventos } from '../hooks/useEventos'
+import { useArquivos } from '../hooks/useArquivos'
 import { Link } from 'react-router-dom'
 
 export function Inicio() {
   const { perfilIdoso } = useAuth()
   const { eventos } = useEventos('remedio')
+  const { obterUrlAssinada } = useArquivos()
+  const [fotoUrl, setFotoUrl] = useState<string | null>(null)
   const hoje = new Date().toISOString().slice(0, 10)
   const remediosHoje = eventos.filter((e) => e.data_evento === hoje && !e.tomado)
 
+  useEffect(() => {
+    if (perfilIdoso?.foto_url) obterUrlAssinada(perfilIdoso.foto_url).then(setFotoUrl)
+  }, [perfilIdoso, obterUrlAssinada])
+
   return (
     <div className="min-h-dvh bg-cream pb-28">
-      <CurvedHeader titulo={perfilIdoso?.nome ?? 'Olá'} subtitulo="Bom dia" mostrarLogo />
+      <CurvedHeader titulo={perfilIdoso?.nome ?? 'Olá'} subtitulo="Bom dia" mostrarLogo fotoUrl={fotoUrl} />
 
       <div className="px-5 pt-5">
         {remediosHoje.length > 0 && (

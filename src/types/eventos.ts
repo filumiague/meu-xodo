@@ -20,6 +20,7 @@ export type NovoEvento = Omit<Evento, 'id' | 'criado_em' | 'perfil_idoso_id'>
 export interface PerfilIdoso {
   id: string
   nome: string
+  foto_url: string | null
 }
 
 export type PapelMembro = 'idoso' | 'cuidador' | 'familiar'
