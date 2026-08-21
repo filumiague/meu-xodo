@@ -37,8 +37,7 @@ export function Entrar() {
     <div className="min-h-dvh bg-teal-600 flex flex-col justify-center items-center px-6 py-12">
       <div className="w-full max-w-sm">
         <div className="flex flex-col items-center mb-8">
-          <img src="/logo-meu-xodo.png" alt="Meu Xodó" className="w-20 h-20 mb-3" />
-          <h1 className="font-heading font-bold text-2xl text-white">Meu Xodó</h1>
+          <img src="/logo-meu-xodo-horizontal.png" alt="Meu Xodó" className="h-14 w-auto mb-3" />
           <p className="text-teal-100 text-sm mt-1">
             {modo === 'entrar' ? 'Entre para ver a rotina de saúde' : 'Criar conta de acesso'}
           </p>

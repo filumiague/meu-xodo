@@ -22,7 +22,7 @@ export function CurvedHeader({ titulo, subtitulo, children, mostrarLogo, fotoUrl
       <div className="relative z-10">
         <div className="flex items-center justify-between mb-3">
           {mostrarLogo ? (
-            <img src="/logo-meu-xodo.png" alt="Meu Xodó" className="h-11 w-auto" />
+            <img src="/logo-meu-xodo-horizontal.png" alt="Meu Xodó" className="h-9 w-auto" />
           ) : (
             <span className="font-heading font-bold text-xl">{titulo}</span>
           )}
