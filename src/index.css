@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-teal-900: #0B3D39;
+  --color-teal-700: #0F6E56;
+  --color-teal-600: #147D75;
+  --color-teal-200: #B8E3D9;
+  --color-teal-100: #DCEEEA;
+  --color-teal-050: #F1F8F6;
+
+  --color-amber-600: #E08A2C;
+  --color-amber-500: #F2994A;
+  --color-amber-100: #FDEBD8;
+
+  --color-coral-600: #D9583A;
+  --color-coral-100: #FBE4DD;
+
+  --color-cream: #FBF6EC;
+  --color-ink: #2E2B26;
+  --color-ink-soft: #5B564C;
+  --color-line: #E7DFCF;
+
+  --font-heading: 'Quicksand', sans-serif;
+  --font-body: 'Atkinson Hyperlegible', sans-serif;
+
+  --radius-lg: 28px;
+  --radius-md: 18px;
+  --radius-sm: 12px;
+}
+
+/* Acessibilidade: escala de fonte ajustável pelo usuário (ver AccessibilityContext) */
+:root {
+  --app-font-scale: 1;
+}
+
+html {
+  font-size: calc(16px * var(--app-font-scale));
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-ink);
+  background: #EFEAE0;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, .font-heading {
+  font-family: var(--font-heading);
+}
+
+#root {
+  min-height: 100dvh;
+}
